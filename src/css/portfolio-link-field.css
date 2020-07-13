@@ -1,0 +1,9 @@
+/* Field */
+.portfolio-link label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+.portfolio-link input {
+    width: 100%;
+}

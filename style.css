@@ -1,0 +1,365 @@
+/*
+	Theme Name: Landing Portfolio
+	Author: Somonator
+	Description: Landing page theme for simple portfolio.
+	Version: 1.0
+	License: GNU General Public License v2 or later
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	Text Domain: landing-portfolio
+
+	This theme, like WordPress, is licensed under the GPL.
+*/
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+
+/* Common */
+*,*:before,*:after {
+	box-sizing: border-box;
+}
+html {
+	font-size: 13px;
+}
+body {
+	background: #f4f7f6;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	font-size: 1rem;
+    color: #000000;
+	line-height: 1.4;
+}
+a {
+	text-decoration: none;
+}
+img 	{
+	max-width: 100%;
+	display: block;
+}
+
+/* Common clases */
+.container {
+	width: 100%;
+	max-width: 1150px;
+	margin: 0 auto;
+}
+.overflow-hidden {
+	overflow: hidden;
+}
+.overlay:after {
+	content: '';
+	background-color: rgba(0,0,0,0.3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 5;
+	transition: all .5s;
+}
+
+/* Header */
+.header {
+	padding: 20px 0;
+	margin-bottom: 45px;
+}
+.header .menu-trigger,
+.main-menu .menu-close {
+	display: none;
+}
+.header .logo {
+	text-align: center;
+	margin-bottom: 40px;
+}
+.header .logo img {
+	display: block;
+	margin: 0 auto;
+}
+.header .logo .title {
+	font-size: 4.6rem;
+    font-weight: 200;
+	color: #000000;
+	letter-spacing: 10px;
+    text-transform: uppercase;
+	margin: 0 0 10px 0;
+}
+.header .logo .sub {
+	font-family: 'Caveat', cursive;
+	font-size: 1.4rem;
+	font-weight: 400;
+	color: #646464;
+	display: inline-flex;
+	padding: 0 25px;
+    margin: 0 auto;
+	position: relative;
+}
+.header .logo .sub:before,
+.header .logo .sub:after {
+	content: '';
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+    width: 20px;
+    height: 4px;
+	position: absolute;
+	top: 50%;
+}
+.header .logo .sub:before {
+    left: 0;
+}
+.header .logo .sub:after {
+	right: 0;
+}
+
+/* Main menu */
+.main-menu {
+	background: #f4f7f6;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+}
+.main-menu.fixed {
+	animation: fadeIn 0.5s ease;
+	position: fixed;
+	top: 0;
+	z-index: 3;
+}
+.main-menu .menu {
+	list-style: none;	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+}
+.main-menu .menu .menu-item {
+	font-size: 1rem;
+	color: #000000;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: block;
+	padding: 27px;
+	cursor: pointer;
+}
+.main-menu .menu .menu-item.current,
+.main-menu .menu .menu-item:hover {
+	background: #E6EAEA;
+	color: #333333;
+}
+
+/* Portfolio grid */
+.portfolio-list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: calc(-10% / 3);
+	margin-bottom: 50px;
+}
+.portfolio-list .post {
+	background: #ffffff;
+	width: 30%;
+	margin-right: calc(10% / 3);
+	margin-bottom: 40px;
+}
+.portfolio-list .post .thumbnail {
+	background: #E6EAEA;
+	min-height: 300px;
+	position: relative;
+	display: flex;
+	overflow: hidden;
+}
+.portfolio-list .post .thumbnail img {
+	max-width: 60%;
+	height: auto;
+	margin: auto;
+}
+.portfolio-list .post .thumbnail.hover > * {
+	transition: all 0.5s;
+}
+.portfolio-list .post .thumbnail.hover:hover img {
+	transform: scale(1.2);
+}
+.portfolio-list .post .thumbnail.hover:hover .on-hover {
+	opacity: 1;
+	visibility: visible;
+}
+.portfolio-list .post .thumbnail .on-hover {
+	background:  rgba(0,0,0,0.5);
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.portfolio-list .post .thumbnail .on-hover .inner {
+	border: 1px solid #ffffff;
+	border-radius: 50%;
+	padding: 10px;
+	margin: auto;
+}
+.portfolio-list .post .thumbnail .on-hover .inner span {
+	font-size: 20px;
+	color: #ffffff;
+}
+.portfolio-list .post .content {
+	width: 100%;
+	padding: 20px;
+}
+.portfolio-list .post .content .title {
+	font-size: 14px;
+	font-weight: 500;
+	color: #202121;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+	margin: 0 0 20px 0;
+}
+.portfolio-list .post .content .category {
+	font-size: 14px;
+	font-weight: 300;
+	color: #202121;
+	margin-bottom: 50px;
+}
+.portfolio-list .post .content .category span {
+	font-weight: 500;
+}
+.portfolio-list .post .content .platform {
+	border-top: 1px solid #000000;
+	padding-top: 20px;
+	display: flex;
+	align-items: center;
+}
+.portfolio-list .post .content .platform .icon {
+	width: 27px;
+	height: 27px;
+	margin-right: 10px;
+}
+.portfolio-list .post .content .platform .name {
+	font-size: 12px;
+	font-weight: 500;
+	color: #202121;
+	text-transform: uppercase;
+}
+.portfolio-list .post .edit {
+    text-align: center;	
+	display: block;
+    margin-bottom: 20px;
+}
+
+/* Button and animation load posts */
+.more-post {
+	background: #ffffff;
+    font-size: 17px;
+    font-weight: 400;
+	color: #000000;
+	display: table;
+	padding: 10px 15px;
+	margin: 0 auto 20px auto;
+	transition: all 1s;
+	cursor: pointer;
+}
+.more-post:hover {
+	background: #ffffff;
+	color: #A6ABAB;
+}
+.load-animation {
+	margin: 10px auto;
+}
+.load-animation img {
+	filter: grayscale(100%);
+}
+
+/* No posts */
+.main .no-works {
+	text-align: center;
+	width: 100%;
+}
+
+/* Animation */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Media */
+@media all and (max-width: 1000px) {
+	html {
+		font-size: 12px;
+	}
+	.header .logo {
+		margin-bottom: 0;
+	}
+	.header .menu-trigger {	
+		display: block;
+		position: fixed;
+		top: 20px;
+		left: 20px;
+		z-index: 3;
+	}
+	.header .menu-trigger span {
+		font-size: 20px;
+	}
+	.main-menu .menu-close {
+		display: block;
+	}
+	.main-menu {
+		opacity: 0;
+		width: 90%;
+		height: 90vh;
+		position: fixed;
+		top: 50%;
+		left: -50%;
+		transform: translate(-100%, -50%);
+		transition: all .5s;
+		z-index: 4;
+	}
+	.main-menu.open {
+		opacity: 1;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 6;
+	}
+	.main-menu .menu-close {	
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+	.main-menu .menu-close span {
+		font-size: 30px;
+		width: auto;
+	}
+	.main-menu .menu {
+		flex-direction: column;
+		justify-content: center;
+		overflow-y: scroll;
+	}	
+	.portfolio-list {
+		margin-right: -2%;
+	}
+	.portfolio-list .post {
+		width: 48%;
+		margin-right: 2%;
+	}
+}
+@media all and (max-width: 600px) {
+	html {
+		font-size: 13px;
+	}
+	.header .logo .title {
+		font-size: 2rem;
+	}
+	.portfolio-list {
+		justify-content: center;
+		margin-right: 0;
+	}
+	.portfolio-list .post {
+		width: 100%;
+	}
+}
+@media all and (max-width: 300px) {
+	html {
+		font-size: 15px;
+	}
+}
